@@ -1,0 +1,36 @@
+{
+    "name": "nodes/nstack",
+    "description": "Easy usage for NStack with Laravel",
+    "keywords": [
+        "nstack",
+        "nstack manager",
+        "laravel"
+    ],
+    "license": "MIT",
+    "homepage": "http://nodesagency.com",
+    "authors": [
+        {
+            "name": "Casper Rasmussen",
+            "email": "cr@nodes.dk",
+            "role": "CTO & Partner"
+        }
+    ],
+    "require": {
+        "laravel/framework": "5.1.*||5.2.*||5.3.*||5.4.*||5.5.*",
+        "nodes/core": "^1.0",
+        "guzzlehttp/guzzle": "6.x"
+    },
+    "require-dev" : {
+        "phpunit/phpunit": "~5.7",
+        "orchestra/testbench": "~3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nodes\\NStack\\": "src/",
+            "Nodes\\NStack\\Tests\\": "tests/"
+        },
+        "files": [
+            "src/Support/Helpers/NStack.php"
+        ]
+    }
+}
