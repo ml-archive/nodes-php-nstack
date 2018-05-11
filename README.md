@@ -63,6 +63,9 @@ composer dump-autoload
 Global function
 ```
 nstack()
+$countries = nstack()->countries()
+nstack()->pushLog('fcm', 'my-app', 'userNotification', true, [], [], 'Hi!', 1);
+nstack()->upload('private-password', $uploadedFile, str_random(8));
 ```
 
 ## 🏆 Credits
