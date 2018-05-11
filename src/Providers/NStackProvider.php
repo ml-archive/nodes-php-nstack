@@ -6,7 +6,7 @@ namespace Nodes\NStack\Providers;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\UploadedFile;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Nodes\NStack\Clients\Client;
 
 /**
@@ -97,7 +97,7 @@ class NStackProvider
      * @author Casper Rasmussen <cr@nodes.dk>
      * @access public
      * @param string (public, private, private-password) $privacy
-     * @param \Nodes\NStack\Providers\UploadedFile $uploadedFile
+     * @param Symfony\Component\HttpFoundation\File\UploadedFile $uploadedFile
      * @param string                               $name
      * @return array
      */
