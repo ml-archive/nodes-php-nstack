@@ -62,7 +62,7 @@ class ServiceProvider extends IlluminateServiceProvider
 
             $credentials = config('nodes.nstack.credentials');
 
-            if (!$credentials || empty($credentials['appId']) || empty($credentials['restKey'])) {
+            if (empty($credentials['appId']) || empty($credentials['restKey'])) {
                 throw new MissingCredentialsException('Missing NStack credentials');
             }
 

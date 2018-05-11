@@ -12,10 +12,8 @@ return [
     | that all the required methods has been implemented
     |
     */
-    'credentials' => function () {
-        return [
-            'appId'   => env('NSTACK_APP_ID'),
-            'restKey' => env('NSTACK_REST_KEY'),
-        ];
-    },
+    'credentials' => [
+        'appId'   => env('NSTACK_APP_ID'),
+        'restKey' => env('NSTACK_REST_KEY'),
+    ]
 ];
