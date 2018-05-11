@@ -92,7 +92,7 @@ class NStackProvider
     }
 
     /**
-     * upload
+     * fileUpload
      *
      * @author Casper Rasmussen <cr@nodes.dk>
      * @access public
@@ -101,37 +101,43 @@ class NStackProvider
      * @param string                               $name
      * @return array
      */
-    public function upload(
+    public function fileUpload(
         string $privacy,
         UploadedFile $uploadedFile,
         string $name,
         string $tags = null,
         Carbon $goneAt = null
     ): array {
-        $response = $this->client->post('content/files', [
-            'multipart' => [
-                [
-                    'name'     => 'file',
-                    'contents' => fopen($uploadedFile->getRealPath(), 'r'),
-                    'filename' => $uploadedFile->getRealPath(),
-                ],
-                [
-                    'name'     => 'name',
-                    'contents' => $name,
-                ],
-                [
-                    'name'     => 'privacy',
-                    'contents' => $privacy,
-                ],
-                [
-                    'name'     => 'tags',
-                    'contents' => $tags,
-                ],
-                [
-                    'name'     => 'gone_at',
-                    'contents' => $goneAt ? $goneAt->toDateTimeString() : null,
-                ],
+
+        $multipart = [
+            [
+                'name'     => 'file',
+                'contents' => fopen($uploadedFile->getRealPath(), 'r'),
+                'filename' => $uploadedFile->getRealPath(),
             ],
+            [
+                'name'     => 'name',
+                'contents' => $name,
+            ],
+            [
+                'name'     => 'privacy',
+                'contents' => $privacy,
+            ],
+            [
+                'name'     => 'tags',
+                'contents' => $tags,
+            ],
+        ];
+
+        if ($goneAt) {
+            $multipart[] = [
+                'name'     => 'gone_at',
+                'contents' => $goneAt->toDateTimeString(),
+            ];
+        }
+
+        $response = $this->client->post('content/files', [
+            'multipart' => $multipart,
         ]);
 
         return json_decode($response->getBody()->getContents(), true);;
