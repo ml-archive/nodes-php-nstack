@@ -66,6 +66,7 @@ nstack()
 $countries = nstack()->countries()
 nstack()->pushLog('fcm', 'my-app', 'userNotification', true, ['request here'], ['response here'], 'Hi!', 1);
 nstack()->fileUpload('private-password', $uploadedFile, str_random(8));
+nstack()->validateEmail($email): bool
 ```
 
 ## 🏆 Credits

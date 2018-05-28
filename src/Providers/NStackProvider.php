@@ -151,7 +151,7 @@ class NStackProvider
      * @param string $email
      * @return bool
      */
-    public function validateEmail(string $email)
+    public function validateEmail(string $email): bool
     {
         try {
             $response = $this->client->get('validator/email', [
