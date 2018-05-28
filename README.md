@@ -18,7 +18,7 @@ NStack integration for Laravel
 To install this package you will need:
 
 * Laravel 5.1+
-* PHP 5.5.9+
+* PHP 7.0+
 
 You must then modify your `composer.json` file and run `composer update` to include the latest version of the package in your project.
 
@@ -66,6 +66,7 @@ nstack()
 $countries = nstack()->countries()
 nstack()->pushLog('fcm', 'my-app', 'userNotification', true, ['request here'], ['response here'], 'Hi!', 1);
 nstack()->fileUpload('private-password', $uploadedFile, str_random(8));
+nstack()->validateEmail($email): bool
 ```
 
 ## 🏆 Credits

@@ -98,7 +98,7 @@ class NStackProvider
      * @access public
      * @param string (public, private, private-password) $privacy
      * @param Symfony\Component\HttpFoundation\File\UploadedFile $uploadedFile
-     * @param string                               $name
+     * @param string                                             $name
      * @return array
      */
     public function fileUpload(
@@ -140,6 +140,31 @@ class NStackProvider
             'multipart' => $multipart,
         ]);
 
-        return json_decode($response->getBody()->getContents(), true);;
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    /**
+     * validateEmail
+     *
+     * @author Casper Rasmussen <cr@nodes.dk>
+     * @access public
+     * @param string $email
+     * @return bool
+     */
+    public function validateEmail(string $email): bool
+    {
+        try {
+            $response = $this->client->get('validator/email', [
+                'query' => [
+                    'email' => $email,
+                ],
+            ]);
+
+            $json = json_decode($response->getBody()->getContents(), true);
+
+            return $json['data']['ok'];
+        } catch (\Throwable $e) {
+            return false;
+        }
     }
 }
