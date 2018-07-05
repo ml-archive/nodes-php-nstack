@@ -1,13 +1,13 @@
 <?php
 
-namespace Riide\Services\NStack;
+namespace Nodes\NStack\Clients;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Class CountryClient
+ * Class FileClient
  *
- * @package Riide\Services\NStack
+ * @package Nodes\NStack\Clients
  */
 class FileClient extends Client
 {
@@ -17,7 +17,7 @@ class FileClient extends Client
     protected $slug = 'content/files';
 
     /**
-     * @var CountryClient|null
+     * @var FileClient|null
      */
     private static $instance;
 
@@ -27,7 +27,7 @@ class FileClient extends Client
      * @author Casper Rasmussen <cr@nodes.dk>
      * @static
      * @access public
-     * @return \Riide\Services\NStack\FileClient
+     * @return \Nodes\NStack\Clients\FileClient
      */
     public static function getInstance(): FileClient
     {

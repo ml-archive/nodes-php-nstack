@@ -5,7 +5,7 @@ namespace Nodes\NStack;
 /**
  * Class CountryClient
  *
- * @package Riide\Services\NStack
+ * @package Nodes\NStack
  */
 class CountryClient extends Client
 {
@@ -17,7 +17,7 @@ class CountryClient extends Client
      * @author Casper Rasmussen <cr@nodes.dk>
      * @static
      * @access public
-     * @return \Riide\Services\NStack\CountryClient
+     * @return \Nodes\NStack\CountryClient
      */
     public static function getInstance() : CountryClient
     {
